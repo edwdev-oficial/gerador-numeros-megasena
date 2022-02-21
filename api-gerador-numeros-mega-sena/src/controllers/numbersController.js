@@ -2,6 +2,11 @@ const express = require('express');
 const Numbers = require('../models/numbers');
 const router = express.Router();
 
+// create
+
+
+
+// read
 router.get('/', async(req, res) => {
 
     try {
@@ -14,4 +19,4 @@ router.get('/', async(req, res) => {
 
 });
 
-module.exports = (app) => ('numbers', router);
+module.exports = (app) => app.use('/numbers', router);

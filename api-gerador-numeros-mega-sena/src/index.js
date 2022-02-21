@@ -2,12 +2,12 @@ const express = require('express');
 const bodyParser = require('../node_modules/body-parser');
 const cor = require('cors');
 
-const port = 8082
-
 const app = express();
+const port = 8082
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cor());
 
 app.get('/', (req, res) => {
 
