@@ -36,14 +36,37 @@ router.put('/', async(req, res) => {
 
     try {
 
-        const numbers = await Numbers.findByIdAndUpdate({
-            
-            numbers: req.body.numbers
+        const numbers = await Numbers.findByIdAndUpdate(
+            {
+                _id: req.body._id
+            },
+            {
+                numbers: req.body.numbers
+            }
+        );
 
-        });
+        return res.send(numbers);
 
     }catch(error) {
         return res.status(400).send({ error: 'Update failed' });
+    };
+
+});
+
+router.delete('/', async(req, res) => {
+
+    try {
+
+        const numbers = await Numbers.findByIdAndRemove(
+            {
+                _id: req.body._id
+            }
+        );
+
+        return res.send(numbers);
+
+    }catch(error) {
+        return res.status(400).send({ error: 'Delete failed' });
     };
 
 });
