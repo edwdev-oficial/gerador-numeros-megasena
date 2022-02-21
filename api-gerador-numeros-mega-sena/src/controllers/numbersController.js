@@ -32,4 +32,20 @@ router.get('/', async(req, res) => {
 
 });
 
+router.put('/', async(req, res) => {
+
+    try {
+
+        const numbers = await Numbers.findByIdAndUpdate({
+            
+            numbers: req.body.numbers
+
+        });
+
+    }catch(error) {
+        return res.status(400).send({ error: 'Update failed' });
+    };
+
+});
+
 module.exports = (app) => app.use('/numbers', router);
