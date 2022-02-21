@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
 });
 
 require('./controllers/numbersController')(app);
+require('./controllers/userController')(app);
 
 app.listen(port, () => {
     console.log(`api-gerador-numeros-mega-sena loading in url http://localhost:${port}`);
