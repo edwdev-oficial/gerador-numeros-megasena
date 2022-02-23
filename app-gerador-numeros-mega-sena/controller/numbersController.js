@@ -99,8 +99,6 @@ export class NumbersController {
 
             const numbers = await Numbers.getNumbers(data);
 
-            console.log(numbers);
-
             metodo.printNumbers(numbers);
 
         });
