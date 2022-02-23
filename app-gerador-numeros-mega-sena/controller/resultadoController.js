@@ -2,7 +2,7 @@ import { Resultado } from "../model/resultado.js";
 
 export class ResultadoController {
 
-    async getResultado() {
+    static async getResultado() {
 
         const data = {
             nomeLoteria: 'megasena',
@@ -10,8 +10,8 @@ export class ResultadoController {
         };
 
         const promise = await Resultado.getResultado(data);
-
-        console.log(promise);
+        console.log(promise)
+        return promise.dezenas
          
 
     }
