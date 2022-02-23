@@ -39,7 +39,9 @@ router.post('/find', async(req, res) => {
             [   
                 {
                     $match: {
-                        userId: new mongoose.Types.ObjectId(req.body.userId)
+                        userId: new mongoose.Types.ObjectId(req.body.userId),
+                        concurso: req.body.concurso
+                        
                     }
                 },
                 {
