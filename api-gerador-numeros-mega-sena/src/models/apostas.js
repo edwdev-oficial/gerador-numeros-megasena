@@ -2,13 +2,21 @@ const mongoose = require('mongoose');
 
 const ApostaSchema = new mongoose.Schema({
 
-    numbers: {
-        type: Array,
-    },
     userId: {
         type: mongoose.Types.ObjectId,
         ref: 'User'
-    }
+    },
+    concurso: {
+        type: Number
+    },
+    numbersId: [
+        {
+            numberId: {
+                type: mongoose.Types.ObjectId,
+                ref: 'Numbers'
+            },
+        }
+    ]
 
 });
 
