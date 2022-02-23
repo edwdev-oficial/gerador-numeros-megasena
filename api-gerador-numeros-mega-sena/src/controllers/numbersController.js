@@ -23,33 +23,37 @@ router.post('/', async(req, res) => {
         qtdPlays = req.body.qtdPlays;
         qtdNumbers = req.body.qtdNumbers;
         
-        do {
-        
+
+
             do {
         
-                const number = gerarAleatorio();
-                if(numbers.indexOf(number) === -1) {
-                    numbers.push(number)
-                };
+                do {
             
-            }while(numbers.length < qtdNumbers)
+                    const number = gerarAleatorio();
+                    if(numbers.indexOf(number) === -1) {
+                        numbers.push(number)
+                    };
+                
+                }while(numbers.length < qtdNumbers)
+                
+                numbersGenerating = (numbers.sort(function(a,b) {
+                    return a - b
+    
+                }));
             
-            numbersGenerating = (numbers.sort(function(a,b) {
-                return a - b
+                const myNumbers = await Numbers.create(
+                    {
+                        numbers: numbersGenerating,
+                        userId: req.body.userId
+                    }
+                );
+    
+                numbers.splice(0, numbers.length)
+            
+                numPlay ++
+            }while(numPlay < qtdPlays )  
 
-            }));
-        
-            const myNumbers = await Numbers.create(
-                {
-                    numbers: numbersGenerating,
-                    userId: req.body.userId
-                }
-            );
 
-            numbers.splice(0, numbers.length)
-        
-            numPlay ++
-        }while(numPlay < qtdPlays )        
 
         const findNumberByUserId = await Numbers.find(
             {
@@ -102,7 +106,7 @@ router.put('/', async(req, res) => {
 
 });
 
-router.put('/user', async(req, res) => {
+router.post('/user', async(req, res) => {
 
     try {
 
@@ -142,7 +146,7 @@ router.delete('/deleteByUser', async(req, res) => {
 
     try {
 
-        const numbers = await Numbers.remove(
+        const numbers = await Numbers.deleteMany(
             {
                 userId: req.body.userId
             }
