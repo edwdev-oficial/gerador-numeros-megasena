@@ -6,7 +6,7 @@ export class Apostas {
 
     static async getApostas(_data) {
 
-        const response = await fetch(`${url}/aposta`, {
+        const response = await fetch(`${url}/aposta/find`, {
             method: 'POST',
             body: JSON.stringify(_data),
             headers: { 'Content-Type': 'application/json; charset=UTF-8' }
