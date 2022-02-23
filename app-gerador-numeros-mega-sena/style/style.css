@@ -45,11 +45,14 @@ main {
 main > .container {
     width: 100%;
     height: 100%;
-    background-color: aquamarine;
+    margin-top: 0;
+    padding-top: 25px;
 }
 
 li {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 li > .number {
@@ -61,10 +64,7 @@ li > .number {
     border-radius: 50%;
     margin: 5px;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-/* li > .number:nth-child(2n) {
-    background-color: red;
-} */
-
-
