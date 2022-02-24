@@ -6,8 +6,7 @@ export class Numbers {
 
     static async createNumbers(_data) {
 
-        // const url = `http://localhost:${port}/numbers`
-
+        
         const response = await fetch(`${url}/numbers`, {
             method: 'POST',
             body: JSON.stringify(_data),
