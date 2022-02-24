@@ -15,6 +15,7 @@ export class ResultadoController {
          
 
     }
+    
 
     startGetResultado() {
         metodo.getResultado();
