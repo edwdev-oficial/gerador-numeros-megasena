@@ -14,8 +14,6 @@ export class ApostasController {
 
         this.printNumbersAposta(aposta,data.concurso)
 
-
-
     }
 
     async printNumbersAposta(numeros, concurso) {
